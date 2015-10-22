@@ -1,12 +1,12 @@
 {
   "name": "gulp-jasmine-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gulp task for jasmine-node module",
   "main": "index.js",
   "repository": {
-    "type": "git", 
+    "type": "git",
     "url": "alex-pollan/gulp-jasmine-node"
-  } ,
+  },
   "scripts": {
     "test": ""
   },
@@ -17,8 +17,8 @@
   "files": [
     "index.js"
   ],
-  "author": { 
-    "name" : "Alex Pollan"
+  "author": {
+    "name": "Alex Pollan"
   },
   "license": "MIT",
   "dependencies": {
