@@ -1,0 +1,30 @@
+{
+  "name": "gulp-jasmine-node",
+  "version": "1.0.0",
+  "description": "Gulp task for jasmine-node module",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [
+    "gulp",
+    "jasmine-node"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "author": "alex-pollan",
+  "license": "MIT",
+  "dependencies": {
+    "arrify": "^1.0.0",
+    "assert": "^1.3.0",
+    "gulp-util": "^3.0.7",
+    "jasmine-node": "^1.14.5",
+    "jasmine-terminal-reporter": "^1.0.0",
+    "path": "^0.12.7",
+    "through2": "^2.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
