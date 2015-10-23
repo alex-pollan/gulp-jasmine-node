@@ -71,7 +71,7 @@ module.exports = function (options) {
         }
         
         if (file.isStream()) {
-            cb(new gutil.PluginError('gulp-jasmine', 'Streaming not supported'));
+            cb(new gutil.PluginError('gulp-jasmine-node', 'Streaming not supported'));
             return;
         }
         
