@@ -1,6 +1,6 @@
 # Gulp task for jasmine-node
 
-This is a very basic implementation of a gulp task for *[jasmine-node](https://github.com/mhevery/jasmine-node)*
+This is a very basic implementation of a gulp task for [jasmine-node](https://github.com/mhevery/jasmine-node)
 
 ### Install
 
@@ -18,4 +18,4 @@ gulp.task('test', function () {
 });
 ```
 
-For more information about writing unit test with jasmine-node see *[https://github.com/mhevery/jasmine-node]*
+For more information about writing unit test with *jasmine-node* see [https://github.com/mhevery/jasmine-node](https://github.com/mhevery/jasmine-node)
