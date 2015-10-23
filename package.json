@@ -1,6 +1,6 @@
 {
   "name": "gulp-jasmine-node",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Gulp task for jasmine-node module",
   "main": "index.js",
   "repository": {
