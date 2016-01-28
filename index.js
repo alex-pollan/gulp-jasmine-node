@@ -61,6 +61,7 @@ module.exports = function (options) {
     } else {
         jasmineEnv.addReporter(new jasmine.TerminalVerboseReporter({
             color: color,
+            includeStackTrace: options.includeStackTrace
         }));
     }
     
