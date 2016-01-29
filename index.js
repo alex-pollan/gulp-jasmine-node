@@ -1,11 +1,10 @@
-﻿
 var path = require('path');
 var arrify = require('arrify');
 var gutil = require('gulp-util');
-var Reporter = require('jasmine-terminal-reporter');
 var through = require('through2');
 var jasmine = require('jasmine-node');
 var jasmineEnv = jasmine.getEnv();
+var _ = require('lodash');
 
 function deleteRequireCache(id) {
     if (!id || id.indexOf('node_modules') !== -1) {
@@ -23,44 +22,26 @@ function deleteRequireCache(id) {
     }
 }
 
-var SilentReporter = function (cb) {
-    var failureCount = 0;
-    
-    this.specDone = function (result) {
-        if (result.status === 'failed') {
-            failureCount++;
-        }
-    };
-    
-    this.jasmineDone = function () {
-        if (failureCount > 0) {
-            cb(new gutil.PluginError('gulp-jasmine-node', 'Tests failed', {
-                showStack: false
-            }));
-            return;
-        }
-        
-        cb();
-    };
-};
-
 module.exports = function (options) {
     options = options || {};
+    
+    _.defaults(options, { 
+        timeout: 10000,
+        showColor: true,
+        includeStackTrace: true
+    });
     
     if (options.timeout) {
         jasmine.asyncSpecWait.timeout = options.timeout;
     }
     
-    var color = options.showColor || true;
-    var reporter = options.reporter;
-    
-    if (reporter) {
-        arrify(reporter).forEach(function (el) {
+    if (options.reporter) {
+        arrify(options.reporter).forEach(function (el) {
             jasmineEnv.addReporter(el);
         });
     } else {
         jasmineEnv.addReporter(new jasmine.TerminalVerboseReporter({
-            color: color,
+            color: options.showColor,
             includeStackTrace: options.includeStackTrace
         }));
     }
@@ -87,7 +68,6 @@ module.exports = function (options) {
         cb(null, file);
     }, function (cb) {
         try {
-            jasmineEnv.addReporter(new SilentReporter(cb));
             jasmineEnv.execute();
         } catch (err) {
             cb(new gutil.PluginError('gulp-jasmine-node', err, { showStack: true }));
