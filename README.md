@@ -20,14 +20,20 @@ gulp.task('test', function () {
 
 ### Options
 
-includeStackTrace - Ability to suppress stack trace
+*timeout* - Time in milliseconds to wait for async tests
+
+*includeStackTrace* - Ability to suppress stack trace
+
+*color* - Indicates spec output should uses color to indicates passing (green) or failing (red) specs
+
 ```javascript
 var jasmineNode = require('gulp-jasmine-node');
 
 gulp.task('test', function () {
     return gulp.src(['spec/**/*spec.js']).pipe(jasmineNode({
         timeout: 10000,
-        includeStackTrace: false
+        includeStackTrace: false,
+        color: false
     }));
 });
 ```
