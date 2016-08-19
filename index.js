@@ -68,6 +68,11 @@ module.exports = function (options) {
         cb(null, file);
     }, function (cb) {
         try {
+            jasmineEnv.addReporter({
+                reportRunnerResults: function () {
+                    cb(); // all tests have finished
+                }
+            });
             jasmineEnv.execute();
         } catch (err) {
             cb(new gutil.PluginError('gulp-jasmine-node', err, { showStack: true }));
