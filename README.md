@@ -18,7 +18,7 @@ gulp.task('test', function () {
 });
 ```
 
-### Options
+#### Options
 
 *timeout* - Time in milliseconds to wait for async tests
 
@@ -39,3 +39,9 @@ gulp.task('test', function () {
 ```
 
 For more information about writing unit test with *jasmine-node* see [https://github.com/mhevery/jasmine-node](https://github.com/mhevery/jasmine-node)
+
+### Changelog
+
+#### 1.0.7
+
+- Fixed a bug that prevented async tests to be finalized (done callback never called)
